@@ -7,6 +7,7 @@ feature "site has a blog" do
   end
 
   scenario "I can make posts" do
+    sign_in
     visit(articles_path)
     click_on "New"
     fill_in("Title", :with=> articles(:bestarticle).title)
@@ -14,9 +15,12 @@ feature "site has a blog" do
     click_on "Create Article"
     page.text.must_include("Article was successfully created.")
     page.text.must_include(articles(:bestarticle).title)
+    page.has_css? '#author'
+    page.text.must_include users(:user).email
   end
 
   scenario "I can edit posts" do
+    sign_in
     visit article_path(articles(:bestarticle))
     click_on "Edit"
     fill_in("Title", :with=> articles(:bestarticle).title)
@@ -26,6 +30,7 @@ feature "site has a blog" do
   end
 
   scenario "I can delete posts" do
+    sign_in
     visit article_path(articles(:bestarticle))
     click_on "Delete"
     page.text.must_include "Welcome To Teh Blahg"
