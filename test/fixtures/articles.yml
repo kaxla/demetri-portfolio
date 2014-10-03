@@ -2,3 +2,16 @@ bestarticle:
   title: this is the bestarticle
   body: seriously the best
   author: user
+  published: true
+
+worstarticle:
+  title: this is the worst articles
+  body: seriously the best
+  author: author
+  published: true
+
+unpublished:
+  title: I'm not published
+  body: not published!
+  author: author
+  published: false

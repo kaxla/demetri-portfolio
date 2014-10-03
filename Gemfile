@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'minitest-rails'
 gem 'pg'
+gem 'pundit'
 gem 'rails', '4.1.6'
 gem 'sass-rails', '~> 4.0.3'
 gem 'turbolinks'
@@ -25,8 +26,9 @@ group :production do
 end
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'spring'
-  # gem 'sqlite3'
 end
 
 group :test do
